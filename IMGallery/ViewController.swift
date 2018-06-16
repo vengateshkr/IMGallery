@@ -14,9 +14,9 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .red
-        APIManager.shared.fetchAPI { (response, error) in
-            if let response = response {
-                print(response)
+        APIManager.fetchAPI { [weak self] (data, error) in
+            if let data = data {
+                self?.parseData(data)
             }
             if let error = error {
                 print(error.localizedDescription)
@@ -28,6 +28,13 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func parseData(_ data : Data){
+        if let apiData = APIDataModel.loadAlbumModel(data: data) {
+            
+        }
+
     }
     
     // MARK: - UICollectionView Delegates

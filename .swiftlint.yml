@@ -4,6 +4,7 @@ disabled_rules: # rule identifiers to exclude from running
   - control_statement
   - line_length
   - trailing_whitespace
+  - identifier_name
 
 opt_in_rules: # some rules are only opt-in
   - empty_count
@@ -40,11 +41,4 @@ type_name:
     warning: 40
     error: 50
   excluded: iPhone # excluded via string
-identifier_name:
-  min_length: # only min_length
-    error: 4 # only error
-  excluded: # excluded via string array
-    - id
-    - URL
-    - GlobalAPIKey
 reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, junit, html, emoji)

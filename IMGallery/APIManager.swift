@@ -10,18 +10,16 @@ import Foundation
 import Alamofire
 
 class APIManager {
-    
-    static let shared = APIManager()
-    
-    func fetchAPI(responseHandler: @escaping (Any?,Error?) -> Void) {
+
+    class func fetchAPI(responseHandler: @escaping (Data?,Error?) -> Void) {
         
         let header = ["Authorization": Constants.clientID]
         let apiUrl = URL(string: Constants.urlStr)!
         
         Alamofire.request(apiUrl, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).validate(statusCode: 200..<300).responseJSON { (response) in
             switch(response.result) {
-            case .success(let data) :
-                responseHandler(data,nil)
+            case .success :
+                responseHandler(response.data,nil)
             case .failure(let error) :
                 responseHandler(nil,error)
             }
