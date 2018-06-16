@@ -7,7 +7,25 @@
 		<key>IMGallery.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>5</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>1468E46320D5013C00387DFB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1468E47720D5013E00387DFB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1468E48220D5013E00387DFB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
