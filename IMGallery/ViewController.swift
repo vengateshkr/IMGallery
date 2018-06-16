@@ -5,22 +5,57 @@
 //  Created by Venkatesh on 16/06/18.
 //  Copyright © 2018 Venkatesh. All rights reserved.
 //
-//https://api.imgur.com/3/gallery/hot/viral/0
+
 import UIKit
+import Alamofire
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .red
+        APIManager.shared.fetchAPI { (response, error) in
+            if let response = response {
+                print(response)
+            }
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
         // Do any additional setup after loading the view, typically from a nib.
-    }
-    
-    func viewDidLod() {
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - UICollectionView Delegates
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let yourWidth = collectionView.bounds.width/2.0
+        let yourHeight = yourWidth
+        
+        return CGSize(width: yourWidth, height: yourHeight)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets.zero
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return UICollectionViewCell()
     }
 }
