@@ -5,14 +5,14 @@
 //  Created by Venkatesh on 16/06/18.
 //  Copyright © 2018 Venkatesh. All rights reserved.
 //
-
+//https://api.imgur.com/3/gallery/hot/viral/0
 import UIKit
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .red
         // Do any additional setup after loading the view, typically from a nib.
     }
 
