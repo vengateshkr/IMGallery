@@ -25,17 +25,31 @@
                                     <size key="itemSize" width="160" height="147"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="15" minY="10" maxX="15" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imagecell" id="TWq-4h-4nd" customClass="ImageCollectionViewCell" customModule="IMGallery" customModuleProvider="target">
-                                        <rect key="frame" x="15" y="10" width="160" height="147"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="147"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="160" height="147"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rmw-i3-hgg">
+                                                    <rect key="frame" x="0.0" y="0.0" width="160" height="147"/>
+                                                </imageView>
+                                            </subviews>
                                         </view>
                                         <color key="backgroundColor" red="0.41706252669999999" green="0.67051227739999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="rmw-i3-hgg" firstAttribute="leading" secondItem="TWq-4h-4nd" secondAttribute="leading" id="6vm-HG-2zC"/>
+                                            <constraint firstAttribute="trailing" secondItem="rmw-i3-hgg" secondAttribute="trailing" id="BEa-kQ-AIr"/>
+                                            <constraint firstItem="rmw-i3-hgg" firstAttribute="top" secondItem="TWq-4h-4nd" secondAttribute="top" id="CdY-L8-46w"/>
+                                            <constraint firstAttribute="bottom" secondItem="rmw-i3-hgg" secondAttribute="bottom" id="Ipl-BA-RlU"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="rmw-i3-hgg" id="nFD-KX-fvN"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>

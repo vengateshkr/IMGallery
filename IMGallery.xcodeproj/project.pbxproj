@@ -184,8 +184,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1468E48C20D5013E00387DFB /* Build configuration list for PBXNativeTarget "IMGallery" */;
 			buildPhases = (
-				1468E49520D515DD00387DFB /* Run Script */,
 				5EB6F72AB47C8660F8BBA7DF /* [CP] Check Pods Manifest.lock */,
+				1468E49520D515DD00387DFB /* Run Script */,
 				1468E46020D5013C00387DFB /* Sources */,
 				1468E46120D5013C00387DFB /* Frameworks */,
 				1468E46220D5013C00387DFB /* Resources */,
@@ -330,11 +330,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-IMGallery/Pods-IMGallery-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AASquaresLoading/AASquaresLoading.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AASquaresLoading.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 			);

@@ -7,6 +7,7 @@ target 'IMGallery' do
 pod 'Alamofire', '~> 4.6'
 pod 'ObjectMapper', '~> 3.1'
 pod 'SwiftLint'
+pod 'AASquaresLoading'
 
   target 'IMGalleryTests' do
     inherit! :search_paths
