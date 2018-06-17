@@ -14,6 +14,7 @@ import PINRemoteImage
 class ViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var imageCollectionView: UICollectionView!
+    var selectedImgStr : String!
     var albums : [Album]? {
         didSet {
             self.imageCollectionView.reloadData()
@@ -40,6 +41,13 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - Navigation
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc =  segue.destination as! ImageViewController
+        vc.imgstr = self.selectedImgStr
     }
     
     // MARK: - API calls and parsing methods
@@ -70,9 +78,21 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     // MARK: - UICollectionView Delegates and Datasource
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let yourWidth = collectionView.bounds.width/2.5
+        let yourWidth = collectionView.bounds.width/2.0
         let yourHeight = yourWidth
         return CGSize(width: yourWidth, height: yourHeight)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets.zero
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -82,10 +102,17 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell : ImageCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "imagecell", for: indexPath) as! ImageCollectionViewCell
-        let imgstr = formImageString(indexPath)
+        
+        let imgStr = formImageString(indexPath)
         cell.imageView.pin_updateWithProgress = true
-        cell.imageView.pin_setImage(from: URL(string: imgstr!))
+        cell.imageView.pin_setImage(from: URL(string: imgStr!))
+        
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selectedImgStr = formImageString(indexPath)
+        self.performSegue(withIdentifier: "toImageVC", sender: nil)
     }
     
     func formImageString(_ indexPath: IndexPath) -> String! {
