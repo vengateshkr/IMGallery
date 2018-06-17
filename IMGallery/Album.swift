@@ -56,9 +56,7 @@ class APIDataModel {
         
         do {
             let json  = try JSONSerialization.jsonObject(with: data, options: [])
-            
             let product = Mapper<APIData>().map(JSONObject: json)
-            
             return product!
             
         } catch {

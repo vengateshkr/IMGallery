@@ -20,7 +20,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AMC-KH-IV1">
                                 <rect key="frame" x="0.0" y="88" width="375" height="690"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="j4f-gL-Ead">
                                     <size key="itemSize" width="160" height="147"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -28,23 +28,20 @@
                                     <inset key="sectionInset" minX="15" minY="10" maxX="15" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="TWq-4h-4nd">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imagecell" id="TWq-4h-4nd" customClass="ImageCollectionViewCell" customModule="IMGallery" customModuleProvider="target">
                                         <rect key="frame" x="15" y="10" width="160" height="147"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="160" height="147"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
-                                    </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="2qM-32-SnQ">
-                                        <rect key="frame" x="200" y="10" width="160" height="147"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="160" height="147"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
+                                        <color key="backgroundColor" red="0.41706252669999999" green="0.67051227739999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="CR5-G3-RxG"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="vnF-Pu-EQi"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -57,6 +54,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="jSD-Jq-MSU"/>
+                    <connections>
+                        <outlet property="imageCollectionView" destination="AMC-KH-IV1" id="Hi6-pg-4Rb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
