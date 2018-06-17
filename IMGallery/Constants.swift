@@ -14,5 +14,3 @@ class Constants {
     static let clientID : String = "Client-ID 1f66e7eab0efbfd"
     
 }
-
-//Authorization:Client-ID 1f66e7eab0efbfd

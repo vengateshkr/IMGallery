@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import AASquaresLoading
+import PINRemoteImage
 
 class ViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
@@ -30,8 +31,6 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .red
-        
         // Start loading
         self.loadingSquare.start()
         callImgurAPI()
@@ -83,7 +82,31 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell : ImageCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "imagecell", for: indexPath) as! ImageCollectionViewCell
-        //cell.imageView.image =
+        let imgstr = formImageString(indexPath)
+        cell.imageView.pin_updateWithProgress = true
+        cell.imageView.pin_setImage(from: URL(string: imgstr!))
         return cell
+    }
+    
+    func formImageString(_ indexPath: IndexPath) -> String! {
+        var imgStr : String!
+        if let imgType = self.albums?[indexPath.item].type {
+            if imgType == "video/mp4" {
+                imgStr = self.albums?[indexPath.item].gifv ?? ""
+                imgStr = String(imgStr.dropLast())
+            } else {
+                imgStr = self.albums?[indexPath.item].link ?? ""
+            }
+        }
+        
+        if let imgType = self.albums?[indexPath.item].images?[0].type {
+            if imgType == "video/mp4" {
+                imgStr = self.albums?[indexPath.item].images?[0].gifv ?? ""
+                imgStr = String(imgStr.dropLast())
+            } else {
+                imgStr = self.albums?[indexPath.item].images?[0].link ?? ""
+            }
+        }
+        return imgStr
     }
 }

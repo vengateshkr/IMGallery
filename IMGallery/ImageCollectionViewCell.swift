@@ -8,10 +8,13 @@
 
 import Foundation
 import UIKit
+import PINRemoteImage
 
 class ImageCollectionViewCell : UICollectionViewCell {
     
-    @IBOutlet weak var imageView: UIImageView!
+    // MARK: - UICollectionViewCell lifecycle methods
+
+    @IBOutlet weak var imageView: FLAnimatedImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
     }

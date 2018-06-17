@@ -9,6 +9,9 @@
 import Foundation
 import ObjectMapper
 
+
+// MARK: - APIdata model
+
 struct APIData : Mappable {
     var data : [Album]?
     
@@ -20,10 +23,14 @@ struct APIData : Mappable {
     }
 }
 
+// MARK: - Album model
+
 struct Album : Mappable {
     var isAlbum : Bool?
     var link : String?
     var images : [Image]?
+    var type : String?
+    var gifv : String?
     
     init?(map: Map) {
     }
@@ -34,12 +41,18 @@ struct Album : Mappable {
             images <- map["images"]
         } else {
             link <- map["link"]
+            type <- map["type"]
+            gifv <- map["gifv"]
         }
     }
 }
 
+// MARK: - Image model
+
 struct Image : Mappable {
     var link : String?
+    var type : String?
+    var gifv : String?
 
     init?(map: Map) {
         
@@ -47,8 +60,12 @@ struct Image : Mappable {
     
     mutating func mapping(map: Map) {
         link <- map["link"]
+        type <- map["type"]
+        gifv <- map["gifv"]
     }
 }
+
+// MARK: - class and method to load album from JSON
 
 class APIDataModel {
     

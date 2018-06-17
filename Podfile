@@ -8,6 +8,7 @@ pod 'Alamofire', '~> 4.6'
 pod 'ObjectMapper', '~> 3.1'
 pod 'SwiftLint'
 pod 'AASquaresLoading'
+pod 'PINRemoteImage'
 
   target 'IMGalleryTests' do
     inherit! :search_paths
